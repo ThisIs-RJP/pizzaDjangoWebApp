@@ -1,0 +1,95 @@
+html, body  {
+    margin: 0;
+    margin-top: -11px;
+    padding: 0;
+    font-family: 'Libre Frankln', sans-serif;
+}
+
+/* ##### DEFAULT SETTINGS ##### */
+
+/* NAVIGATION BAR CODE /////////////////////////////////////////////////////////////////////////////////////////////  */
+
+.navbar {
+    padding-top: 20px;
+    height: 90px;
+    font-size: 100%;
+    font-weight: 100;
+}
+
+.logoLink {
+    text-decoration: none;
+    color: white;
+    font-size: 250%;
+    margin-right: 20%;
+    font-family: "Protest Strike", sans-serif;
+}
+
+.navBarLink {
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+    margin-right: 5%;
+    transition: 0.3s;
+}
+
+.navBarLink:hover {
+    color: yellow;
+}
+
+ul {
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+}
+
+/* END NAVIGATION BAR CODE /////////////////////////////////////////////////////////////////////////////////////////////  */
+
+/* START HOME PAGE CODE /////////////////////////////////////////////////////////////////////////////////////////////  */
+
+.homePage {
+    background-image: url("https://i.pinimg.com/originals/0e/6a/c0/0e6ac009562c2fec4f0360e0dc939337.jpg");
+    /* margin-top: -22px; */
+    color: white;
+    margin-top: -110px;
+    overflow: hidden;
+}
+
+.pizzaHome {
+    margin-bottom: -150px;
+}
+
+.homeTitle {
+    font-size: 50%;
+    float: right;
+    margin-right: 15%
+}
+
+.homeTitleTitle {
+    color: yellow;
+    font-family: "Protest Strike", sans-serif;
+    font-size: 300%;
+}
+
+.btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+    font-weight: bolder;
+    border-radius: 40px;
+}
+
+.btn:hover {
+    background-color: white;
+    color: red;
+  }
