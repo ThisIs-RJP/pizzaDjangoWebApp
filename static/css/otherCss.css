@@ -1,0 +1,80 @@
+html, body  {
+    margin: 0;
+    margin-top: -11px;
+    padding: 0;
+    font-family: 'Libre Frankln', sans-serif;
+}
+
+/* ##### DEFAULT SETTINGS ##### */
+
+/* ##### FOOTER ##### */
+
+footer {
+    margin-top: 10%;
+    background-color: grey;
+    padding-bottom: 34px;
+}
+
+.footerText {
+    display: flex;
+    justify-content: center;
+}
+/* ##### END OF FOOTER ##### */
+
+/* ##### NAVBAR ##### */
+
+.navbar {
+    padding-top: 20px;
+    height: 90px;
+    font-size: 100%;
+    font-weight: 100;
+    background-color: black;
+}
+
+.logoLink {
+    text-decoration: none;
+    color: white;
+    font-size: 250%;
+    margin-right: 20%;
+    font-family: "Protest Strike", sans-serif;
+}
+
+.logoLink:hover {
+    color: red;
+}
+
+.navBarLink {
+    text-decoration: none;
+    color: white;
+    font-size: 150%;
+    margin-right: 5%;
+    transition: 0.3s;
+}
+
+.navBarLink:hover {
+    color: yellow;
+}
+
+ul {
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+}
+/* ##### END NAVBAR ##### */
+
+
+/* ##### SIGNUP PAGE CONFIG ##### */
+.card-body {
+    text-align: right;
+}
+
+.pizzaImage {
+    width: 100%;
+    display: inline-block
+}
