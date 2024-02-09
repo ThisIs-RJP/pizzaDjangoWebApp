@@ -67,7 +67,7 @@ li {
 .homeTitle {
     font-size: 50%;
     float: right;
-    margin-right: 15%
+    margin-right: 15%;
 }
 
 .homeTitleTitle {
@@ -92,4 +92,12 @@ li {
 .btn:hover {
     background-color: white;
     color: red;
-  }
+}
+
+.openingTimes {
+    margin-top: 10%;
+}
+
+.openingTimes h1 {
+    color: red;
+}
