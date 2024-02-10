@@ -4,7 +4,6 @@ from .models import Pizza
 
 class UploadForm(ModelForm):
     name = forms.TextInput()
-    desc = forms.TextInput()
     class Meta:
         model = Pizza
-        fields = ['name', 'desc']
+        fields = ['name']
