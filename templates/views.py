@@ -12,6 +12,7 @@ def home(request):
     return HttpResponse("ok")
 
 def index(request):
+    # Pizza.objects.all().delete() ## Deleting everything from testing
     return render(request, 'index.html')
 
 def signup(request):
