@@ -33,12 +33,14 @@
 
     {% block content %}
     <!-- <div style="display: flex; margin-top: 10%" id="parent"> -->
+        <center>
+            <form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Submit</button>
+            </form>
+        </center>
 
-        <form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Submit</button>
-        </form>
         <!-- ############################################################################################################## -->
 
         <!-- <div id="child" style="display: inline-block; margin-right: -30%;" >

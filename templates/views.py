@@ -4,6 +4,10 @@ from templates.forms import *
 from templates.models import *
 from django.core.cache import *
 
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
+
 # cache = caches['redis']
 
 # Create your views here.
@@ -27,11 +31,7 @@ def signup(request):
             # return render(request, '')
     return render(request, 'signup.html', {'form' : UploadForm})
 
-# def upload(request):
-#     if request.POST:
-#         form = UploadForm(request.POST, request.FILES)
-#         print(request.FILES)
-#         if form.is_valid():
-#             form.save()
-#         return redirect(home)
-#     return render(request, 'movies/upload.html', {'form' : UploadForm})
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("/")
+    template_name = "signup.html"
