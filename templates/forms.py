@@ -1,9 +1,7 @@
-from django.forms import ModelForm
 from django import forms
-from .models import Pizza
+from .models import *
 
-class UploadForm(ModelForm):
-    name = forms.TextInput()
+class UploadForm(forms.ModelForm):
     class Meta:
         model = Pizza
         fields = ['name']

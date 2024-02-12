@@ -4,7 +4,7 @@ from templates.forms import *
 from templates.models import *
 from django.core.cache import *
 
-cache = caches['redis']
+# cache = caches['redis']
 
 # Create your views here.
 
@@ -15,15 +15,15 @@ def index(request):
     return render(request, 'index.html')
 
 def signup(request):
-    if request.POST:
-        form = UploadForm(request.POST, request.FILES)
-        print(request.FILES)
-
+    if request.method == "POST":
+        form = UploadForm(request.POST)
         if form.is_valid():
-            form.save()
+            pizza = form.save()
+            return render(request, 'success.html', {'pizza' : pizza })
         else:
             print("Failed!")
-        return redirect(index)
+            return redirect(index)
+            # return render(request, '')
     return render(request, 'signup.html', {'form' : UploadForm})
 
 # def upload(request):
