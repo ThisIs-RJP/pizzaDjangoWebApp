@@ -27,12 +27,12 @@ def signup(request):
             print("Failed!")
             return redirect(index)
             # return render(request, '')
-    return render(request, 'signup.html', {'form' : UploadForm})
+    return render(request, 'makeAccount.html', {'form' : UploadForm})
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy("successs.html")
-    template_name = "signup.html"
+    success_url = reverse_lazy("success.html")
+    template_name = "makeAccount.html"
 
 # def upload(request):
 #     if request.POST:

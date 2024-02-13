@@ -34,7 +34,7 @@
     {% block content %}
     <!-- <div style="display: flex; margin-top: 10%" id="parent"> -->
         <center>
-            <form method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form }}
                 <button type="submit">Submit</button>
