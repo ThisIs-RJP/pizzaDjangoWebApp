@@ -1,11 +1,11 @@
 from django.urls import path
 from . import views
+from .forms import *
 # from .views import SignUpView
 
 urlpatterns = [
     path('', views.index, name="index"),
+    path('profile', views.profile, name="profile"),
     path('create', views.signup, name="makeAccount"),
-    # path('create', SignUpView.as_view(), name="makeAccount"),
-    path('error', views.signup, name="error"),
-    path('success', views.signup, name="success"),
+    path('log-in', views.LoginView.as_view(template_name="logIn.html", authentication_form=UserLoginForm), name="logIn"),
 ]

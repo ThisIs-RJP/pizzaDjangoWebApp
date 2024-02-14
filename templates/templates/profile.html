@@ -1,0 +1,6 @@
+{% block content %}
+    {% if user.is_authenticated %}
+        <h3>Hello {{ user.username }}</h3>
+    {% endif %}
+    <h1>Welcome to my page</h1>
+{% endblock %}
