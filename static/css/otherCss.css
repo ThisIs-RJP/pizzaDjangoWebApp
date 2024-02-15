@@ -92,15 +92,11 @@ li {
 /* ##### END SUBMIT BUTTON CONFIG ##### */
 
 /* ##### SIGNUP PAGE CONFIG ##### */
-.card-body {
-    text-align: right;
+.signup {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
 }
-
-.pizzaImage {
-    width: 100%;
-    display: inline-block
-}
-
 /* ##### END SIGNUP PAGE CONFIG ##### */
 
 /* ##### LOGIN PAGE CONFIG ##### */
@@ -118,6 +114,21 @@ li {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom: 5px solid rgb(46, 46, 46);
+    text-align: center
+}
+
+.loginBox a {
+    text-decoration: none;
+    color: black;
+    font-size: 150%;
+    transition: 0.3s;
+}
+
+.loginBox section {
+    margin-top: 5%;
+}
+.loginBox a:hover {
+    letter-spacing: 1px;
 }
 
 .centerBoxTitle {

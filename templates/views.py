@@ -25,8 +25,6 @@ def signup(request):
             return redirect('index')
     else:
         form = UserForm()
-
-
     return render(request, 'makeAccount.html', {'form': form})
 
 class UserLoginView(LoginView):

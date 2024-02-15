@@ -32,14 +32,29 @@
     {% extends 'base2.html' %}
 
     {% block content %}
-    <!-- <div style="display: flex; margin-top: 10%" id="parent"> -->
-        <center>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit">Submit</button>
-            </form>
-        <center>
+        <div class="login">
+            <div class="loginBox">
+                <div class="centerBoxTitle">
+                    <h1>
+                        A Slice of Ashley's
+                        <br>
+                        <section>
+                            Sign Up
+                        </section>
+                    </h1>
+                </div>
+                <form method="POST" enctype="multipart/form-data" style="text-align: left;">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="submitButton">Sign In</button>
+                </form>
+                <section>
+                    <a href="/log-in">
+                        Already have an account?
+                    </a>
+                </section>
+            </div>
+        </div>
     {% endblock %}
 </body>
 
