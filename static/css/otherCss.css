@@ -3,6 +3,7 @@ html, body  {
     margin-top: -11px;
     padding: 0;
     font-family: 'Libre Frankln', sans-serif;
+    width: 100%;
 }
 
 /* ##### DEFAULT SETTINGS ##### */
@@ -69,6 +70,26 @@ li {
 }
 /* ##### END NAVBAR ##### */
 
+/* ##### SUBMIT BUTTON CONFIG ##### */
+
+.submitButton {
+    text-decoration: none;
+    border: none;
+    background-color: red;
+    border-radius: 10px;
+    width: 100%;
+    height: 30px;
+    font-size: 120%;
+    color: white;
+    transition: 0.3s;
+}
+
+.submitButton:hover {
+    color: red;
+    background-color: white;
+}
+
+/* ##### END SUBMIT BUTTON CONFIG ##### */
 
 /* ##### SIGNUP PAGE CONFIG ##### */
 .card-body {
@@ -79,3 +100,41 @@ li {
     width: 100%;
     display: inline-block
 }
+
+/* ##### END SIGNUP PAGE CONFIG ##### */
+
+/* ##### LOGIN PAGE CONFIG ##### */
+
+.login {
+    margin-top: 5%;
+    display: flex;
+    margin-bottom: 22%;
+    justify-content: center;
+}
+
+.loginBox {
+    background-color: rgb(222, 222, 222);
+    padding: 10%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom: 5px solid rgb(46, 46, 46);
+}
+
+.centerBoxTitle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
+    margin-top: -20%;
+    text-align: center
+}
+
+.centerBoxTitle h1 {
+    font-family: "Protest Strike", sans-serif;
+}
+
+.centerBoxTitle section {
+    font-family: 'Libre Frankln', sans-serif;
+    margin-top: 4%;
+    font-size: 80%;
+}
+
