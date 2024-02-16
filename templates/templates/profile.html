@@ -1,6 +1,94 @@
-{% block content %}
-    {% if user.is_authenticated %}
-        <h3>Hello {{ user.username }}</h3>
-    {% endif %}
-    <h1>Welcome to my page</h1>
-{% endblock %}
+<!DOCTYPE html>
+
+<!-- ############## Font Choice from Google ########################## -->
+
+<!-- ##### LIBRE FRANKLIN #####  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+
+<!-- ############## Font Choice from Google ########################## -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+
+<!-- ############## MAIN CODE FOR index.html ########################## -->
+
+<html>
+    {% extends 'base.html' %}
+
+    <!-- ##### NECESSARY LINKS ##### -->
+
+    <head>
+        <link rel="stylesheet" href="static/css/css.css">
+    </head>
+
+    <!-- ##### NECESSARY LINKS ##### -->
+
+
+    {% block content %}
+    <div class="homePage">
+        <h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="homeTitle">
+                <h2>
+                    WELCOME TO
+                </h2>
+                <h1 class="homeTitleTitle">
+                    ASHLEY'S PIZZERIA
+                </h1>
+
+                <button class="btn">Order Now!</button>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <img src="static/images/PIZZA.png" class="pizzaHome"/>
+        </h1>
+    </div>
+
+    <div class="openingTimes">
+        <div class="line">
+            &nbsp;
+        </div>
+        <h1>
+            Opening Times
+        </h1>
+        <div class="line2">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="times">
+        <div style="font-weight: bolder;">
+            <p1>
+                Monday - Friday: 
+                <br>
+                Saturday & Sunday: 
+            </p1>
+        </div>
+
+        <div class="timesTimes">
+            <p1>
+                12:00PM - 11:00PM
+                <br>
+                12:00PM - 12:00AM
+            </p1>
+        </div>
+
+    </div>
+
+
+    <!-- <h1>
+        <img src="static/images/brickWall.jpg" />
+    </h1> -->
+	{% endblock %}
+</html>

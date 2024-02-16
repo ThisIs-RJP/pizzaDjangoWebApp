@@ -32,18 +32,7 @@ class UserLoginView(LoginView):
 
 def profile(request):
     return render(request, 'profile.html')
-# def signup(request):
-#     if request.method == "POST":
-#         form = UploadForm(request.POST)
-#         if form.is_valid():
-#             pizza = form.save()
-#             return render(request, 'success.html', {'pizza' : pizza })
-#         else:
-#             print("Failed!")
-#             return redirect(index)
-#     return render(request, 'makeAccount.html', {'form' : UploadForm})
 
-# class SignUpView(generic.CreateView):
-#     form_class = UserCreationForm
-#     success_url = reverse_lazy("success.html")
-#     template_name = "makeAccount.html"
+def log_out(request):
+    logout(request)
+    return redirect("/")
