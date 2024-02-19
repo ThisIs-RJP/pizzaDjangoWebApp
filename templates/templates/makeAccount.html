@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6978/6978255.png">
+
+    <!-- ############## Font Choices from Google ########################## -->
+
+    <!-- ##### LIBRE FRANKLIN #####  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% extends 'base2.html' %}
+
+    {% block content %}
+        <div class="login">
+            <div class="loginBox">
+                <div class="centerBoxTitle">
+                    <h1>
+                        A Slice of Ashley's
+                        <br>
+                        <section>
+                            Sign Up
+                        </section>
+                    </h1>
+                </div>
+                <form method="POST" enctype="multipart/form-data" style="text-align: left;">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="submitButton">Sign In</button>
+                </form>
+                <section>
+                    <a href="/log-in">
+                        Already have an account?
+                    </a>
+                </section>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+
+</html>
