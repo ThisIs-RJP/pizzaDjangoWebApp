@@ -10,6 +10,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
@@ -32,12 +33,6 @@ def signup(request):
         form = UserForm()
     return render(request, 'makeAccount.html', {'form': form})
 
-<<<<<<< HEAD
-class SignUpView(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("/")
-    template_name = "signup.html"
-=======
 class UserLoginView(LoginView):
     template_name='logIn.html'
 
@@ -48,6 +43,7 @@ def log_out(request):
     logout(request)
     return redirect("/")
 
+@login_required(login_url='index') #redirect when user is not logged in
 def order(request):
     if request.method == 'POST':
         form = PizzaForm(request.POST)
@@ -64,4 +60,3 @@ def order(request):
             pizza.save()
             return redirect('index')
     return render(request, 'order.html', {'form': form})
->>>>>>> refs/remotes/origin/main

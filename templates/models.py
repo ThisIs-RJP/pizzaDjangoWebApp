@@ -42,19 +42,8 @@ pizzaCheese = (
 ######################## PIZZA MODEL
 
 class Pizza(models.Model):
-<<<<<<< HEAD
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200)
-
-class Users(models.Model):
-    id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
-=======
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     size = models.CharField(max_length=10, choices=pizzaSizes, default='medium')
     crust = models.CharField(max_length=15, choices=pizzaCrustSize, default='normal')
     sauce = models.CharField(max_length=10, choices=pizzaSauce, default='tomato')
     cheese = models.CharField(max_length=10, choices=pizzaCheese, default='mozzarella')
->>>>>>> refs/remotes/origin/main

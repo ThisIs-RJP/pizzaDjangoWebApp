@@ -1,12 +1,7 @@
 from django import forms
 from .models import *
-<<<<<<< HEAD
-from django.contrib.auth.forms import *
-from django.db import *
-=======
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
->>>>>>> refs/remotes/origin/main
 
 class UserForm(UserCreationForm):
     first_name = forms.CharField()
@@ -47,19 +42,8 @@ class UserLoginForm(AuthenticationForm):
 class PizzaForm(forms.ModelForm):
     class Meta:
         model = Pizza
-<<<<<<< HEAD
-        fields = ['name']
-
-class SignUp(forms.ModelForm):
-    class Meta:
-        model = Users
-        fields = ["username",
-                  "email",
-                  "password"]
-=======
         fields = ["size",
                   "crust",
                   "sauce",
                   "cheese"
                   ]
->>>>>>> refs/remotes/origin/main
