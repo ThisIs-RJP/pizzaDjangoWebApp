@@ -36,3 +36,16 @@ def profile(request):
 def log_out(request):
     logout(request)
     return redirect("/")
+
+def testing(request):
+    if request.method == 'POST':
+        form = MyModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = MyModelForm()
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    return render(request, 'testing.html', {'form': form})

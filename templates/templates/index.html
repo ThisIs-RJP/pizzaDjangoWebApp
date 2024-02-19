@@ -44,7 +44,13 @@
                     ASHLEY'S PIZZERIA
                 </h1>
 
-                <button class="btn">Order Now!</button>
+                {% if user.is_authenticated %}
+                <a href="testing"><button class="btn">Order Now!</button></a>
+                
+                {% else %}
+                    <a href="create"><button class="btn">Order Now!</button></a>
+                
+                {% endif %}
             </div>
 
             <br>

@@ -38,3 +38,15 @@ class UserForm(UserCreationForm):
 class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
+
+FRUIT_CHOICES= [
+    ('orange', 'Oranges'),
+    ('cantaloupe', 'Cantaloupes'),
+    ('mango', 'Mangoes'),
+    ('honeydew', 'Honeydews'),
+    ]
+
+class MyModelForm(forms.ModelForm):
+    class Meta:
+        model = MyModel
+        fields = ['color']
