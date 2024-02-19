@@ -3,11 +3,6 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
-class UploadForm(forms.ModelForm):
-    class Meta:
-        model = Pizza
-        fields = ['name']
-
 class UserForm(UserCreationForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
@@ -39,14 +34,16 @@ class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
 
-FRUIT_CHOICES= [
-    ('orange', 'Oranges'),
-    ('cantaloupe', 'Cantaloupes'),
-    ('mango', 'Mangoes'),
-    ('honeydew', 'Honeydews'),
-    ]
+# class MyModelForm(forms.ModelForm):
+#     class Meta:
+#         model = MyModel
+#         fields = ['color']
 
-class MyModelForm(forms.ModelForm):
+class PizzaForm(forms.ModelForm):
     class Meta:
-        model = MyModel
-        fields = ['color']
+        model = Pizza
+        fields = ["size",
+                  "crust",
+                  "sauce",
+                  "cheese"
+                  ]

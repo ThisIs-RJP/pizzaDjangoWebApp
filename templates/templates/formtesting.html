@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>Sign Up</title>
+    <title>Making Pizza</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6978/6978255.png">
+    <link rel="stylesheet" href="static/css/otherCss.css">
 
     <!-- ############## Font Choices from Google ########################## -->
 
@@ -32,21 +33,16 @@
                         A Slice of Ashley's
                         <br>
                         <section>
-                            Testing
+                            Create a pizza
                         </section>
                     </h1>
                 </div>
 
                 <form action="" method="post">{% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Create" />
+                    <button type="submit" class="submitButton">Create Pizza</button>
                 </form>
 
-                <section>
-                    <a href="/log-in">
-                        Already have an account?
-                    </a>
-                </section>
             </div>
         </div>
     {% endblock %}

@@ -37,15 +37,19 @@ def log_out(request):
     logout(request)
     return redirect("/")
 
-def testing(request):
+def order(request):
     if request.method == 'POST':
-        form = MyModelForm(request.POST)
+        form = PizzaForm(request.POST)
         if form.is_valid():
-            form.save()
+            pizza = form.save(commit=False)
+            pizza.author = request.user
+            pizza.save()
             return redirect('index')
     else:
-        form = MyModelForm()
+        form = PizzaForm()
         if form.is_valid():
-            form.save()
+            pizza = form.save(commit=False)
+            pizza.author = request.user
+            pizza.save()
             return redirect('index')
-    return render(request, 'testing.html', {'form': form})
+    return render(request, 'order.html', {'form': form})
