@@ -34,16 +34,18 @@ class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(UserLoginForm, self).__init__(*args, **kwargs)
 
-# class MyModelForm(forms.ModelForm):
-#     class Meta:
-#         model = MyModel
-#         fields = ['color']
-
 class PizzaForm(forms.ModelForm):
     class Meta:
         model = Pizza
         fields = ["size",
                   "crust",
                   "sauce",
-                  "cheese"
+                  "cheese",
+                #   "pepporoni",
+                #   "chicken",
+                #   "ham",
+                #   "pineapple",
+                #   "mushrooms",
+                #   "peppers",
+                #   "onions",
                   ]

@@ -145,3 +145,24 @@ li {
 .timesTimes {
     margin-left: 40px;
 }
+
+/* END START HOME PAGE CODE /////////////////////////////////////////////////////////////////////////////////////////////  */
+
+/* PROFILE ORDERS CODE /////////////////////////////////////////////////////////////////////////////////////////////  */
+
+.order {
+    display: flex;
+    justify-content: center;
+}
+
+.orderBox {
+    background-color: rgb(202, 202, 202);
+    width: 40%;
+    padding: 50px;
+    text-align: left;
+}
+
+.toppingBox label {
+    font-weight: 100;
+    color: red;
+}

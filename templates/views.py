@@ -37,7 +37,8 @@ class UserLoginView(LoginView):
     template_name='logIn.html'
 
 def profile(request):
-    return render(request, 'profile.html')
+    orders = Pizza.objects.all().filter(author=request.user)
+    return render(request, 'profile.html', {'orders' : orders})
 
 def log_out(request):
     logout(request)
@@ -46,17 +47,55 @@ def log_out(request):
 @login_required(login_url='index') #redirect when user is not logged in
 def order(request):
     if request.method == 'POST':
+        toppings = request.POST.getlist("toppings")
         form = PizzaForm(request.POST)
         if form.is_valid():
             pizza = form.save(commit=False)
             pizza.author = request.user
+            pizza.toppings = ", ".join(toppings)
+            # pizza.toppings = "working"
             pizza.save()
+
             return redirect('index')
     else:
         form = PizzaForm()
         if form.is_valid():
+            toppings = request.POST.getlist("toppings")
             pizza = form.save(commit=False)
             pizza.author = request.user
+            pizza.toppings = ", ".join(toppings)
+            # pizza.toppings = "working"
             pizza.save()
+
             return redirect('index')
     return render(request, 'order.html', {'form': form})
+
+# def order(request):
+#     if request.method == 'POST':
+#         tops = request.POST.getlist("toppings")
+#         form = PizzaForm(request.POST)
+#         if form.is_valid():
+            
+#             # # Get the existing Pizza object if it exists
+#             # pizza_instance = Pizza.objects.all()[0]
+
+#             # # Update the existing Pizza object with the new data from the form
+#             # pizza = form.save(commit=False)
+#             # pizza.author = request.user
+#             # pizza_instance.size = pizza.size
+#             # pizza_instance.crust = pizza.crust
+#             # pizza_instance.sauce = pizza.sauce
+#             # pizza_instance.cheese = pizza.cheese
+#             # pizza_instance.save()
+
+#             return redirect('index')
+#     else:
+#         tops = request.POST.getlist("toppings")
+#         form = PizzaForm()
+#         if form.is_valid():
+#             pizza = form.save(commit=False)
+#             pizza.author = request.user
+#             pizza.save()
+
+#             return redirect('index')
+#     return render(request, 'order.html', {'form': form})

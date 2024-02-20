@@ -67,23 +67,21 @@
         </div>
     </div>
 
-    <div class="times">
-        <div style="font-weight: bolder;">
-            <p1>
-                Monday - Friday: 
-                <br>
-                Saturday & Sunday: 
-            </p1>
-        </div>
+    <div class="order">
+        <div class="orderBox">
+            {% for b in orders %}
+            <h1>
+                Pizza Details {{ b.date }}
+            </h1>
 
-        <div class="timesTimes">
-            <p1>
-                12:00PM - 11:00PM
-                <br>
-                12:00PM - 12:00AM
-            </p1>
+            <p><b>Size:</b> {{ b.size }}</p>
+            <p><b>Crust:</b> {{ b.crust }}</p>
+            <p><b>Sauce:</b> {{ b.sauce }}</p>
+            <p><b>Cheese:</b> {{ b.cheese }}</p>
+            {% endfor %}
         </div>
-
+        </div>
+        <br>
     </div>
 
 
