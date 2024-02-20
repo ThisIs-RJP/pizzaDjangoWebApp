@@ -82,6 +82,7 @@ li {
     font-size: 120%;
     color: white;
     transition: 0.3s;
+    margin-top: 10%;
 }
 
 .submitButton:hover {
@@ -127,6 +128,7 @@ li {
 .loginBox section {
     margin-top: 5%;
 }
+
 .loginBox a:hover {
     letter-spacing: 1px;
 }
@@ -147,5 +149,11 @@ li {
     font-family: 'Libre Frankln', sans-serif;
     margin-top: 4%;
     font-size: 80%;
+}
+
+.labelLabel {
+    font-weight: 100;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
