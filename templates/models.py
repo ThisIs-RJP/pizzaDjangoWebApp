@@ -86,3 +86,28 @@ class Pizza(models.Model):
     toppings = models.CharField(max_length=500)
 
     date = models.DateTimeField(auto_now_add=True, blank=True)
+
+############# Delivery Config
+month = (
+    ("January", "January"),
+    ("February", "February"),
+    ("March", "March"),
+    ("April", "April"),
+    ("May", "May"),
+    ("June", "June"),
+    ("July", "July"),
+    ("August", "August"),
+    ("September", "September"),
+    ("October", "October"),
+    ("November", "November"),
+    ("December", "December"),
+)
+
+class Delivery(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    cardNo = models.IntegerField(max_length=20)
+    expMonth = models.CharField(max_length=15, choices=month, default='January')
+    expYear = models.IntegerField(max_length=4)
+    cvv = models.IntegerField(max_length=4)

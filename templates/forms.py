@@ -49,3 +49,14 @@ class PizzaForm(forms.ModelForm):
                 #   "peppers",
                 #   "onions",
                   ]
+
+class DeliveryForm(forms.ModelForm):
+    class Meta:
+        model = Delivery
+        fields = ["name",
+                  "address",
+                  "cardNo",
+                  "expMonth",
+                  "expYear",
+                  "cvv"
+                  ]

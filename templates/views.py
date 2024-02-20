@@ -16,8 +16,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 
-# cache = caches['redis']
 # Create your views here.
+
+goToDelivery = 0
+pizza = 0
 
 def index(request):
     # Pizza.objects.all().delete() ## Deleting everything from testing
@@ -46,6 +48,9 @@ def log_out(request):
 
 @login_required(login_url='index') #redirect when user is not logged in
 def order(request):
+    global goToDelivery
+    global pizza
+
     if request.method == 'POST':
         toppings = request.POST.getlist("toppings")
         form = PizzaForm(request.POST)
@@ -54,9 +59,8 @@ def order(request):
             pizza.author = request.user
             pizza.toppings = ", ".join(toppings)
             # pizza.toppings = "working"
-            pizza.save()
-
-            return redirect('index')
+            goToDelivery = 1
+            return redirect('delivery')
     else:
         form = PizzaForm()
         if form.is_valid():
@@ -65,37 +69,39 @@ def order(request):
             pizza.author = request.user
             pizza.toppings = ", ".join(toppings)
             # pizza.toppings = "working"
-            pizza.save()
-
-            return redirect('index')
+            goToDelivery = 1
+            return redirect('delivery')
     return render(request, 'order.html', {'form': form})
 
-# def order(request):
-#     if request.method == 'POST':
-#         tops = request.POST.getlist("toppings")
-#         form = PizzaForm(request.POST)
-#         if form.is_valid():
-            
-#             # # Get the existing Pizza object if it exists
-#             # pizza_instance = Pizza.objects.all()[0]
+@login_required(login_url='index') #redirect when user is not logged in
+def delivery(request):
 
-#             # # Update the existing Pizza object with the new data from the form
-#             # pizza = form.save(commit=False)
-#             # pizza.author = request.user
-#             # pizza_instance.size = pizza.size
-#             # pizza_instance.crust = pizza.crust
-#             # pizza_instance.sauce = pizza.sauce
-#             # pizza_instance.cheese = pizza.cheese
-#             # pizza_instance.save()
+    global goToDelivery
+    global pizza
 
-#             return redirect('index')
-#     else:
-#         tops = request.POST.getlist("toppings")
-#         form = PizzaForm()
-#         if form.is_valid():
-#             pizza = form.save(commit=False)
-#             pizza.author = request.user
-#             pizza.save()
+    if goToDelivery == 1:
+        if request.method == 'POST':
+            form = DeliveryForm(request.POST)
+            if form.is_valid():
+                delivery = form.save(commit=False)
+                delivery.author = request.user
+                delivery.save()
 
-#             return redirect('index')
-#     return render(request, 'order.html', {'form': form})
+                goToDelivery = 0
+                pizza.save()
+
+                return redirect("profile")
+        else:
+            form = DeliveryForm()
+            if form.is_valid():
+                delivery = form.save(commit=False)
+                delivery.author = request.user
+                delivery.save()
+
+                goToDelivery = 0
+                pizza.save()
+
+                return redirect("profile")
+    else:
+        return redirect('profile')
+    return render(request, 'delivery.html', {'form': form})
