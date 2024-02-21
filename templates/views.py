@@ -61,6 +61,9 @@ def order(request):
             # pizza.toppings = "working"
             goToDelivery = 1
             return redirect('delivery')
+        else:
+            return render(request, 'order.html', {'form': form})
+
     else:
         form = PizzaForm()
         if form.is_valid():

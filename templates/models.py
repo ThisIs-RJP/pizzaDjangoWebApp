@@ -3,69 +3,58 @@ from django.contrib.auth.models import User
 
 ######################## PIZZA CONFIG 
 
-pizzaSizes = (
-    ("small", "small"),
-    ("medium", "medium"),
-    ("large", "large"),
-)
+# pizzaSizes = (
+#     ("small", "small"),
+#     ("medium", "medium"),
+#     ("large", "large"),
+# )
 
-pizzaCrustSize = (
-    ("thin", "thin"),
-    ("normal", "normal"),
-    ("thick", "thick"),
-    ("gluten free", "gluten free"),
-)
+# pizzaCrustSize = (
+#     ("thin", "thin"),
+#     ("normal", "normal"),
+#     ("thick", "thick"),
+#     ("gluten free", "gluten free"),
+# )
 
-pizzaSauce = (
-    ("tomato", "tomato"),
-    ("vegan", "bbq"),
-)
+# pizzaSauce = (
+#     ("tomato", "tomato"),
+#     ("vegan", "bbq"),
+# )
 
-pizzaCheese = (
-    ("mozzarella", "mozzarella"),
-    ("vegan", "vegan"),
-    ("low fat", "low fat"),
-)
+# pizzaCheese = (
+#     ("mozzarella", "mozzarella"),
+#     ("vegan", "vegan"),
+#     ("low fat", "low fat"),
+# )
 
-#### Pizza Topping Config
+class PizzaSizes(models.Model):
+    size = models.CharField(max_length=10)
 
-pepporoni = (
-    ("none", "none"),
-    ("pepporoni", "pepporoni"),
-)
+class PizzaCrust(models.Model):
+    crust = models.CharField(max_length=10)
 
-chicken = (
-    ("none", "none"),
-    ("chicken", "chicken"),
-)
+class PizzaCheese(models.Model):
+    cheese = models.CharField(max_length=10)
 
-ham = (
-    ("none", "none"),
-    ("ham", "ham"),
-)
+class PizzaSauce(models.Model):
+    sauce = models.CharField(max_length=10)
 
+##### Grabbing all available items from our database
+items = PizzaSizes.objects.all()
+pizzaSizes = tuple((size.size, size.size) for size in items)
 
-pineapple = (
-    ("none", "none"),
-    ("pineapple", "pineapple"),
-)
+items = PizzaCrust.objects.all()
+pizzaCrustSize = tuple((item.crust, item.crust) for item in items)
 
+items = PizzaSauce.objects.all()
+pizzaSauce = tuple((item.sauce, item.sauce) for item in items)
 
-mushrooms = (
-    ("none", "none"),
-    ("mushrooms", "mushrooms"),
-)
+items = PizzaCheese.objects.all()
+pizzaCheese = tuple((item.cheese, item.cheese) for item in items)
 
+# print(pizzaCheese)
 
-onions = (
-    ("none", "none"),
-    ("onions", "onions"),
-)
-
-peppers = (
-    ("none", "none"),
-    ("peppers", "peppers"),
-)
+#### Pizza Topping Config /////////////// No longer used
 
 ######################## PIZZA MODEL
 class Pizza(models.Model):
@@ -107,7 +96,7 @@ class Delivery(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
-    cardNo = models.IntegerField(max_length=20)
+    cardNo = models.IntegerField()
     expMonth = models.CharField(max_length=15, choices=month, default='January')
-    expYear = models.IntegerField(max_length=4)
+    expYear = models.IntegerField()
     cvv = models.IntegerField(max_length=4)

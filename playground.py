@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 
-x = 0
-
-def changeNo():
-    global x
-    x = 1
-
-changeNo()
-
-print(x)
+cheeses = ["mozzarella", "vegan", "low fat"]
+pizzaCheese = tuple((cheese, cheese) for cheese in cheeses)
+print(pizzaCheese)
