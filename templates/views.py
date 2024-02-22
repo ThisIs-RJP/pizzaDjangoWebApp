@@ -12,10 +12,6 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views import generic
-
 # Create your views here.
 
 goToDelivery = 0
@@ -36,7 +32,7 @@ def signup(request):
     return render(request, 'makeAccount.html', {'form': form})
 
 class UserLoginView(LoginView):
-    template_name='logIn.html'
+    template_name='login.html'
 
 def profile(request):
     orders = Pizza.objects.all().filter(author=request.user)
