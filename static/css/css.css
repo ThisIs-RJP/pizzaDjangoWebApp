@@ -37,8 +37,12 @@ footer {
     font-size: 250%;
     margin-right: 20%;
     font-family: "Protest Strike", sans-serif;
+    transition: 0.3s;
 }
 
+.logoLink:hover {
+    color: red;
+}
 .navBarLink {
     text-decoration: none;
     color: white;
