@@ -92,11 +92,12 @@ month = (
     ("December", "December"),
 )
 
+years = tuple((year, year) for year in range(2022, 2050))
 class Delivery(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     cardNo = models.IntegerField()
     expMonth = models.CharField(max_length=15, choices=month, default='January')
-    expYear = models.IntegerField()
+    expYear = models.IntegerField(choices=years, default=2000)
     cvv = models.IntegerField(max_length=4)
