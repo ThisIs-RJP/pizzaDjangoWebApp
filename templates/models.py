@@ -28,16 +28,16 @@ from django.contrib.auth.models import User
 # )
 
 class PizzaSizes(models.Model):
-    size = models.CharField(max_length=10)
+    size = models.CharField(max_length=20)
 
 class PizzaCrust(models.Model):
-    crust = models.CharField(max_length=10)
+    crust = models.CharField(max_length=20)
 
 class PizzaCheese(models.Model):
-    cheese = models.CharField(max_length=10)
+    cheese = models.CharField(max_length=20)
 
 class PizzaSauce(models.Model):
-    sauce = models.CharField(max_length=10)
+    sauce = models.CharField(max_length=20)
 
 ##### Grabbing all available items from our database
 items = PizzaSizes.objects.all()
@@ -59,10 +59,10 @@ pizzaCheese = tuple((item.cheese, item.cheese) for item in items)
 ######################## PIZZA MODEL
 class Pizza(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    size = models.CharField(max_length=10, choices=pizzaSizes, default='medium')
-    crust = models.CharField(max_length=15, choices=pizzaCrustSize, default='normal')
-    sauce = models.CharField(max_length=10, choices=pizzaSauce, default='tomato')
-    cheese = models.CharField(max_length=10, choices=pizzaCheese, default='mozzarella')
+    size = models.CharField(max_length=20, choices=pizzaSizes, default='medium')
+    crust = models.CharField(max_length=20, choices=pizzaCrustSize, default='normal')
+    sauce = models.CharField(max_length=20, choices=pizzaSauce, default='tomato')
+    cheese = models.CharField(max_length=20, choices=pizzaCheese, default='mozzarella')
 
     # pepporoni = models.CharField(max_length=10, choices=pepporoni, default="none")
     # chicken = models.CharField(max_length=10, choices=chicken, default="none")
