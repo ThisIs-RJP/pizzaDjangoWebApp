@@ -89,7 +89,7 @@ def delivery(request):
                 goToDelivery = 0
                 pizza.save()
 
-                return redirect("profile")
+                return redirect("confirmation")
         else:
             form = DeliveryForm()
             if form.is_valid():
@@ -100,7 +100,12 @@ def delivery(request):
                 goToDelivery = 0
                 pizza.save()
 
-                return redirect("profile")
+                return redirect("confirmation")
     else:
         return redirect('profile')
     return render(request, 'delivery.html', {'form': form})
+
+def confirmation(request):
+    orders = Pizza.objects.all().filter(author=request.user)
+    delivery = Delivery.objects.all().filter(author=request.user)
+    return render(request, 'confirmation.html', {'orders' : orders, "delivery" : delivery})

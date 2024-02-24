@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<!-- ############## Font Choice from Google ########################## -->
+
+<!-- ##### LIBRE FRANKLIN #####  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+
+<!-- ############## Font Choice from Google ########################## -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+
+<!-- ############## MAIN CODE FOR index.html ########################## -->
+
+<html>
+    {% extends 'base.html' %}
+
+    <!-- ##### NECESSARY LINKS ##### -->
+
+    <head>
+        <link rel="stylesheet" href="static/css/css.css">
+    </head>
+
+    <!-- ##### NECESSARY LINKS ##### -->
+
+
+    {% block content %}
+    <div class="homePage">
+        <h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="homeTitle">
+                <h2>
+                    Go back to profile page?
+                </h2>
+                <!-- <h1 class="homeTitleTitle">
+                    ASHLEY'S PIZZERIA
+                </h1> -->
+
+                <a href="profile"><button class="btn">Click here</button></a>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <img src="static/images/PIZZA.png" class="pizzaHome"/>
+        </h1>
+    </div>
+
+    <div class="openingTimes">
+        <div class="line">
+            &nbsp;
+        </div>
+        <h1>
+            Order Confirmed
+        </h1>
+        <div class="line2">
+            &nbsp;
+        </div>
+    </div>
+
+        <div class="order">
+            <div class="orderBox">
+                {% for d in orders %}
+                {% if forloop.last %}
+                <div>
+                    <h1>
+                        <b>Date Ordered:</b> {{ d.date }}
+                    </h1>
+                </div>
+                <div>
+                    <b>Pizza Size:</b> {{ d.size }}
+                </div>
+                <div>
+                    <b>Pizza crust:</b> {{ d.crust }}
+                </div>
+                <div>
+                    <b>Pizza sauce:</b> {{ d.sauce }}
+                </div>
+                <div>
+                    <b>Pizza cheese:</b> {{ d.cheese }}
+                </div>
+                <div>
+                    <b>Pizza toppings:</b> {{ d.toppings }}
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+
+        </div>
+        <div class="order">
+            <div class="orderBox">
+                {% for d in delivery %}
+                {% if forloop.last %}
+                <div>
+                    <h1>
+                        <b>Name:</b> {{ d.name }}
+                    </h1>
+                </div>
+                <div>
+                    <b>Address:</b> {{ d.address }}
+                </div>
+                <div>
+                    <b>Card Number:</b> {{ d.cardNo }}
+                </div>
+                <div>
+                    <b>Expiry Month and Year:</b> {{ d.expMonth }} {{ d.expYear }}
+                </div>
+                <div>
+                    <b>CVV:</b> {{ d.cvv }}
+                </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+
+        </div>
+        <br>
+    </div>
+
+
+    <!-- <h1>
+        <img src="static/images/brickWall.jpg" />
+    </h1> -->
+	{% endblock %}
+</html>
