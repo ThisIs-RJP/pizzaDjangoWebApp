@@ -5,6 +5,7 @@ venv/
 .vscode
 
 # Python Cache
+__pycache__/
 
 # Testing Purposes
 playground.py
