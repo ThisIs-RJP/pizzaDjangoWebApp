@@ -1,31 +1,40 @@
-from django import forms
-from .models import *
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django                     import forms
+from .models                    import *
+from django.contrib.auth.forms  import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class UserForm(UserCreationForm):
     first_name = forms.CharField()
-    last_name = forms.CharField()
-    email = forms.EmailField()
+    last_name  = forms.CharField()
+    email      = forms.EmailField()
 
-    password1 = forms.CharField(
-        label= ("Password"),
-        strip=False,
-        widget=forms.PasswordInput,
+    password1  =  forms.CharField(
+        label  =  ("Password"),
+        strip  = False,
+        widget = forms.PasswordInput,
     )
 
     password2 = forms.CharField(
-        label= ("Confirm Password"),
-        widget=forms.PasswordInput,
-        strip=False,
+        label  = ("Confirm Password"),
+        widget = forms.PasswordInput,
+        strip  = False,
     )
 
     class Meta:
-        model = User
-        fields = ('first_name','last_name', 'username', 'email', 'password1' ,'password2' )
+        model      = User
+        
+        fields     = (
+            'first_name',
+            'last_name', 
+            'username', 
+            'email', 
+            'password1',
+            'password2' 
+            )
+
         help_texts = {
-            'username': None,
-            'email': None,
+            'username':   None,
+            'email':      None,
             'password1' : None,
             'password2' : None,
         }
@@ -41,13 +50,6 @@ class PizzaForm(forms.ModelForm):
                   "crust",
                   "sauce",
                   "cheese",
-                #   "pepporoni",
-                #   "chicken",
-                #   "ham",
-                #   "pineapple",
-                #   "mushrooms",
-                #   "peppers",
-                #   "onions",
                   ]
 
 class DeliveryForm(forms.ModelForm):
